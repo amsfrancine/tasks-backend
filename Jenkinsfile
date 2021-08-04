@@ -6,14 +6,6 @@ pipeline {
                 sh 'mvn clean package -DskipTests=true'           
             }
         }
-        stage('Stage 1') {
-            agent none
-            steps {
-                    script {
-                        Logs = input id: 'test', message: 'Select:', ok: 'Proceed?', parameters: [choice(choices: 'sonar\nflowhr-front-dev\nflowhr-front-hlg\nflowhr-front-prd\npessoas-back-dev\npessoas-back-hlg\npessoas-back-prd\ncompetencias-back-dev\ncompetencias-back-hlg\ncompetencias-back-prd', name: 'myparam')], submitterParameter: 'APPROVER'
-                    }
-                }
-            }
         stage ('Unit Tests') {
             steps {
                   sh 'mvn test'              
