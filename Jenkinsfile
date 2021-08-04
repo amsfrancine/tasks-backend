@@ -11,6 +11,14 @@ pipeline {
                   sh 'mvn test'              
             }
         }  
+        stage ('Api Tests') {
+            steps {
+                dir ('api-test') {
+                     git credentialsId: 'github_login', url: 'https://github.com/amsfrancine/tasks-api-test.git'
+                     sh 'mvn test'
+                }             
+            }
+        }
         stage ('Functional Tests') {
             steps {
                 dir ('functional-test') {
@@ -31,4 +39,3 @@ pipeline {
         }
     }
 }  
- 
