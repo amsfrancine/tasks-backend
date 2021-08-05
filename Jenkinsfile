@@ -11,6 +11,12 @@ pipeline {
                   sh 'mvn test'              
             }
         }  
+         stage ('Functional Tests') {
+            steps {
+                'https://github.com/amsfrancine/tasks-functional-tests-1.git'
+                  sh 'mvn test'              
+            }
+        } 
         stage ('Sonar Analysis') {
             environment {
                 scannerHome = tool 'SONAR_SCANNER'
