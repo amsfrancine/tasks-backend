@@ -28,7 +28,7 @@ pipeline {
                     sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://localhost:9000 -Dsonar.login=663743b232e26a55628b2b67eb84877379500f8c -Dsonar.java.binaries=target"
                 }   
             }
-        }663743b232e26a55628b2b67eb84877379500f8c 
+        } 
          stage ('Quality Gate') {
             steps {
                 sleep(5)
